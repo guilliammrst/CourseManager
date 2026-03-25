@@ -1,6 +1,9 @@
 ### Get student
 GET http://localhost:8080/students/1
 
+### Get student enrollments
+GET http://localhost:8080/students/1/enrollments
+
 ### Get students
 GET http://localhost:8080/students?size=10&page=0
 

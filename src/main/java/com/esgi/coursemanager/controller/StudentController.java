@@ -26,6 +26,13 @@ public class StudentController {
         return result.toResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/{id}/enrollments")
+    public ResponseEntity<?> getStudentEnrollments(@PathVariable Long id) {
+        var result = studentService.getStudentEnrollments(id);
+
+        return result.toResponseEntity(HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<?> getStudents(@ModelAttribute StudentQueryDto queryDto) {
         var result = studentService.getStudents(queryDto);
