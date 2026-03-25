@@ -8,14 +8,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class EnrollmentBodyDto {
+public class StudentCreateBodyDto {
 
     @NotNull
-    private Long studentId;
+    private String firstName;
 
     @NotNull
-    private Long courseId;
+    private String lastName;
 
     @NotNull
-    private String type;
+    private String email;
 }

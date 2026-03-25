@@ -1,3 +1,32 @@
+### Get student
+GET http://localhost:8080/students/1
+
+### Get students
+GET http://localhost:8080/students?size=10&page=0
+
+### Create student
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@doe.com"
+}
+
+### Update student
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+"firstName": "Updated",
+"lastName": "User",
+"email": "updated@mail.com"
+}
+
+### Delete student
+DELETE http://localhost:8080/students/1
+
 ### Enroll student
 POST http://localhost:8080/enrollments
 Content-Type: application/json

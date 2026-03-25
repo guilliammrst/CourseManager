@@ -12,7 +12,7 @@ public class WaitlistPolicy implements EnrollmentPolicy {
         if (course.getEnrollments().size() >= 30)
             // C'est uniquement pour utiliser le pattern
             // La logique de waitlist serait à ajouter ici
-            
+
             return Result.success();
 
         return Result.success();

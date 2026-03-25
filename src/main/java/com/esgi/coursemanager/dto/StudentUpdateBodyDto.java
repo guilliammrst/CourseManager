@@ -1,0 +1,17 @@
+package com.esgi.coursemanager.dto;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public class StudentUpdateBodyDto {
+
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+}

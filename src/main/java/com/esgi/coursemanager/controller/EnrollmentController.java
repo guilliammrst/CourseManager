@@ -21,13 +21,13 @@ public class EnrollmentController {
 
     @PostMapping
     public ResponseEntity<?> enrollStudent(@Valid @RequestBody EnrollmentBodyDto dto) {
-        var enrollmentResult = enrollmentService.enrollStudent(
+        var result = enrollmentService.enrollStudent(
                 dto.getStudentId(),
                 dto.getCourseId(),
                 dto.getType()
         );
 
-        return enrollmentResult.toResponseEntity(HttpStatus.CREATED);
+        return result.toResponseEntity(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
