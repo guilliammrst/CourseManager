@@ -1,0 +1,12 @@
+### Enroll student
+POST http://localhost:8080/enrollments
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "courseId": 1,
+  "type": "NORMAL"
+}
+
+### Delete enrollment
+DELETE http://localhost:8080/enrollments/1
