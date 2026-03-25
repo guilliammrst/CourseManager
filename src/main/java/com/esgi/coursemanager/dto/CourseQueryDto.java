@@ -1,5 +1,6 @@
 package com.esgi.coursemanager.dto;
 
+import com.esgi.coursemanager.model.CourseType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class StudentQueryDto extends PaginationDto {
+public class CourseQueryDto extends PaginationDto {
 
-    private String email;
+    public CourseType courseType;
 }

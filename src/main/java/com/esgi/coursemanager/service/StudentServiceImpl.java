@@ -43,11 +43,10 @@ public class StudentServiceImpl implements StudentService {
 
         Page<Student> students;
 
-        if (queryDto.getEmail() != null) {
+        if (queryDto.getEmail() != null)
             students = studentRepository.findByEmail(queryDto.getEmail(), pageable);
-        } else {
+        else
             students = studentRepository.findAll(pageable);
-        }
 
         var studentsDto = students.stream()
                 .map(StudentDto::new)

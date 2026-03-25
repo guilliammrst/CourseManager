@@ -7,7 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class StudentQueryDto extends PaginationDto {
+public class PaginationDto {
 
-    private String email;
+    private Integer page = 0;
+
+    private Integer size = 10;
 }

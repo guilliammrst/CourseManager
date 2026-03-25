@@ -28,11 +28,11 @@ public class Course {
     public Course() {
     }
 
-    public Course(String title, String description, Teacher teacher, CourseType courseType) {
+    public Course(String title, String description, CourseType courseType, Teacher teacher) {
         this.title = title;
         this.description = description;
-        this.teacher = teacher;
         this.courseType = courseType;
+        this.teacher = teacher;
     }
 
     public Long getId() {
