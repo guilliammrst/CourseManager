@@ -65,6 +65,9 @@ GET http://localhost:8080/courses
 ### Get course by id
 GET http://localhost:8080/courses/1
 
+### Get course students
+GET http://localhost:8080/courses/1/students
+
 ### Create course
 POST http://localhost:8080/courses
 Content-Type: application/json

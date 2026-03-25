@@ -3,6 +3,7 @@ package com.esgi.coursemanager.service;
 import com.esgi.coursemanager.common.Result;
 import com.esgi.coursemanager.dto.CourseDto;
 import com.esgi.coursemanager.dto.CourseQueryDto;
+import com.esgi.coursemanager.dto.CourseStudentDto;
 import com.esgi.coursemanager.model.Course;
 import com.esgi.coursemanager.model.CourseType;
 import com.esgi.coursemanager.model.Teacher;
@@ -39,6 +40,19 @@ public class CourseServiceImpl implements CourseService {
         var courseDto = new CourseDto(course);
 
         return Result.success(courseDto);
+    }
+
+    public Result<List<CourseStudentDto>> getCourseStudents(Long id) {
+        var courseOpt = courseRepository.findById(id);
+        if (courseOpt.isEmpty())
+            return Result.failure(HttpStatus.NOT_FOUND, "Course not found.");
+
+        var course = courseOpt.get();
+        var courseStudentsDto = course.getEnrollments().stream()
+                .map(CourseStudentDto::new)
+                .toList();
+
+        return Result.success(courseStudentsDto);
     }
 
     public Result<List<CourseDto>> getCourses(CourseQueryDto queryDto) {
