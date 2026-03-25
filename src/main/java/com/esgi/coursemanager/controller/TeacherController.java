@@ -26,6 +26,13 @@ public class TeacherController {
         return result.toResponseEntity(HttpStatus.OK);
     }
 
+    @GetMapping("/{id}/courses")
+    public ResponseEntity<?> getTeacherCourses(@PathVariable Long id) {
+        var result = teacherService.getTeacherCourses(id);
+
+        return result.toResponseEntity(HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<?> getTeachers(@ModelAttribute TeacherQueryDto queryDto) {
         var result = teacherService.getTeachers(queryDto);

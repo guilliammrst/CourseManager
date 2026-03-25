@@ -33,6 +33,9 @@ DELETE http://localhost:8080/students/1
 ### Get teacher by id
 GET http://localhost:8080/teachers/1
 
+### Get teacher courses
+GET http://localhost:8080/teachers/1/courses
+
 ### Get teachers
 GET http://localhost:8080/teachers?speciality=Math
 

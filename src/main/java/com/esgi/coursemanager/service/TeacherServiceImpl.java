@@ -2,6 +2,7 @@ package com.esgi.coursemanager.service;
 
 import com.esgi.coursemanager.common.Result;
 import com.esgi.coursemanager.dto.StudentDto;
+import com.esgi.coursemanager.dto.TeacherCourseDto;
 import com.esgi.coursemanager.dto.TeacherDto;
 import com.esgi.coursemanager.dto.TeacherQueryDto;
 import com.esgi.coursemanager.model.CourseType;
@@ -27,10 +28,8 @@ public class TeacherServiceImpl implements TeacherService {
         this.teacherRepository = teacherRepository;
     }
 
-    @Override
     public Result<TeacherDto> getTeacher(Long id) {
         var teacherOpt = teacherRepository.findById(id);
-
         if (teacherOpt.isEmpty())
             return Result.failure(HttpStatus.NOT_FOUND, "Teacher not found");
 
@@ -40,7 +39,19 @@ public class TeacherServiceImpl implements TeacherService {
         return Result.success(teacherDto);
     }
 
-    @Override
+    public Result<List<TeacherCourseDto>> getTeacherCourses(Long id) {
+        var teacherOpt = teacherRepository.findById(id);
+        if (teacherOpt.isEmpty())
+            return Result.failure(HttpStatus.NOT_FOUND, "Teacher not found");
+
+        var teacher = teacherOpt.get();
+        var teacherCoursesDto = teacher.getCourses().stream()
+                .map(TeacherCourseDto::new)
+                .toList();
+
+        return Result.success(teacherCoursesDto);
+    }
+
     public Result<List<TeacherDto>> getTeachers(TeacherQueryDto queryDto) {
         Pageable pageable = PageRequest.of(
                 queryDto.getPage(),
@@ -62,7 +73,6 @@ public class TeacherServiceImpl implements TeacherService {
         return Result.success(teachersDto);
     }
 
-    @Override
     public Result<Long> createTeacher(String firstName, String lastName, CourseType courseType) {
         var teacher = new Teacher();
         teacher.setFirstName(firstName);
@@ -74,7 +84,6 @@ public class TeacherServiceImpl implements TeacherService {
         return Result.success(savedTeacher.getId());
     }
 
-    @Override
     public Result<TeacherDto> updateTeacher(Long id, String firstName, String lastName, CourseType courseType) {
         var teacherOpt = teacherRepository.findById(id);
 
@@ -97,7 +106,6 @@ public class TeacherServiceImpl implements TeacherService {
         return Result.success(new TeacherDto(updated));
     }
 
-    @Override
     public Result<Void> deleteTeacher(Long id) {
         if (!teacherRepository.existsById(id))
             return Result.failure(HttpStatus.NOT_FOUND, "Teacher not found");
