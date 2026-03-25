@@ -42,9 +42,10 @@ public class StudentServiceImpl implements StudentService {
         );
 
         Page<Student> students;
+        var email = queryDto.getEmail();
 
-        if (queryDto.getEmail() != null)
-            students = studentRepository.findByEmail(queryDto.getEmail(), pageable);
+        if (email != null)
+            students = studentRepository.findByEmail(email, pageable);
         else
             students = studentRepository.findAll(pageable);
 

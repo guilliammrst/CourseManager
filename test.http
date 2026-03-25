@@ -27,6 +27,35 @@ Content-Type: application/json
 ### Delete student
 DELETE http://localhost:8080/students/1
 
+### Get teacher by id
+GET http://localhost:8080/teachers/1
+
+### Get teachers
+GET http://localhost:8080/teachers?speciality=Math
+
+### Create teacher
+POST http://localhost:8080/teachers
+Content-Type: application/json
+
+{
+  "firstName": "Jacques",
+  "lastName": "Appart",
+  "courseType": "HISTORY"
+}
+
+### Update teacher
+PUT http://localhost:8080/teachers/1
+Content-Type: application/json
+
+{
+  "firstName": "AliceUpdated",
+  "lastName": "MartinUpdated",
+  "courseType": "BIOLOGY"
+}
+
+### Delete teacher
+DELETE http://localhost:8080/teachers/1
+
 ### Get courses
 GET http://localhost:8080/courses
 

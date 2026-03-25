@@ -8,7 +8,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CourseQueryDto extends PaginationDto {
+public class TeacherUpdateBodyDto {
+
+    private String firstName;
+
+    private String lastName;
 
     private CourseType courseType;
 }

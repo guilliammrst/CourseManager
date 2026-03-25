@@ -48,9 +48,10 @@ public class CourseServiceImpl implements CourseService {
         );
 
         Page<Course> courses;
+        var courseType = queryDto.getCourseType();
 
-        if (queryDto.getCourseType() != null)
-            courses = courseRepository.findByCourseType(queryDto.getCourseType(), pageable);
+        if (courseType != null)
+            courses = courseRepository.findByCourseType(courseType, pageable);
         else
             courses = courseRepository.findAll(pageable);
 
