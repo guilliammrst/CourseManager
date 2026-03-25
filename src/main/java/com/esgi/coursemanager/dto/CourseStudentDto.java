@@ -2,6 +2,7 @@ package com.esgi.coursemanager.dto;
 
 import com.esgi.coursemanager.model.Enrollment;
 import com.esgi.coursemanager.model.Student;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,13 +16,13 @@ public class CourseStudentDto {
     @NotNull
     private Long id;
 
-    @NotNull
+    @NotBlank
     private String firstName;
 
-    @NotNull
+    @NotBlank
     private String lastName;
 
-    @NotNull
+    @NotBlank
     private String email;
 
     @NotNull

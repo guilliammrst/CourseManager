@@ -1,14 +1,14 @@
 ### Get student
-GET http://localhost:8080/students/1
+GET http://localhost:8080/api/v1/students/1
 
 ### Get student enrollments
-GET http://localhost:8080/students/1/enrollments
+GET http://localhost:8080/api/v1/students/1/enrollments
 
 ### Get students
-GET http://localhost:8080/students?size=10&page=0
+GET http://localhost:8080/api/v1/students?size=10&page=0
 
 ### Create student
-POST http://localhost:8080/students
+POST http://localhost:8080/api/v1/students
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Update student
-PUT http://localhost:8080/students/1
+PUT http://localhost:8080/api/v1/students/1
 Content-Type: application/json
 
 {
@@ -28,19 +28,19 @@ Content-Type: application/json
 }
 
 ### Delete student
-DELETE http://localhost:8080/students/1
+DELETE http://localhost:8080/api/v1/students/1
 
 ### Get teacher by id
-GET http://localhost:8080/teachers/1
+GET http://localhost:8080/api/v1/teachers/1
 
 ### Get teacher courses
-GET http://localhost:8080/teachers/1/courses
+GET http://localhost:8080/api/v1/teachers/1/courses
 
 ### Get teachers
-GET http://localhost:8080/teachers?speciality=Math
+GET http://localhost:8080/api/v1/teachers?speciality=Math
 
 ### Create teacher
-POST http://localhost:8080/teachers
+POST http://localhost:8080/api/v1/teachers
 Content-Type: application/json
 
 {
@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 
 ### Update teacher
-PUT http://localhost:8080/teachers/1
+PUT http://localhost:8080/api/v1/teachers/1
 Content-Type: application/json
 
 {
@@ -60,19 +60,19 @@ Content-Type: application/json
 }
 
 ### Delete teacher
-DELETE http://localhost:8080/teachers/1
+DELETE http://localhost:8080/api/v1/teachers/1
 
 ### Get courses
-GET http://localhost:8080/courses
+GET http://localhost:8080/api/v1/courses
 
 ### Get course by id
-GET http://localhost:8080/courses/1
+GET http://localhost:8080/api/v1/courses/1
 
 ### Get course students
-GET http://localhost:8080/courses/1/students
+GET http://localhost:8080/api/v1/courses/1/students
 
 ### Create course
-POST http://localhost:8080/courses
+POST http://localhost:8080/api/v1/courses
 Content-Type: application/json
 
 {
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 
 ### Update course
-PUT http://localhost:8080/courses/1
+PUT http://localhost:8080/api/v1/courses/1
 Content-Type: application/json
 
 {
@@ -94,10 +94,10 @@ Content-Type: application/json
 }
 
 ### Delete course
-DELETE http://localhost:8080/courses/1
+DELETE http://localhost:8080/api/v1/courses/1
 
 ### Enroll student
-POST http://localhost:8080/enrollments
+POST http://localhost:8080/api/v1/enrollments
 Content-Type: application/json
 
 {
@@ -107,7 +107,7 @@ Content-Type: application/json
 }
 
 ### Enroll student
-PUT http://localhost:8080/enrollments/1
+PUT http://localhost:8080/api/v1/enrollments/1
 Content-Type: application/json
 
 {
@@ -115,4 +115,4 @@ Content-Type: application/json
 }
 
 ### Delete enrollment
-DELETE http://localhost:8080/enrollments/1
+DELETE http://localhost:8080/api/v1/enrollments/1

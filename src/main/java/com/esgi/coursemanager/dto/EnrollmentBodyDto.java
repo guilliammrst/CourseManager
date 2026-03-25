@@ -16,6 +16,5 @@ public class EnrollmentBodyDto {
     @NotNull
     private Long courseId;
 
-    @NotNull
     private String type;
 }
