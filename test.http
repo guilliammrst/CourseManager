@@ -106,5 +106,13 @@ Content-Type: application/json
   "type": "NORMAL"
 }
 
+### Enroll student
+PUT http://localhost:8080/enrollments/1
+Content-Type: application/json
+
+{
+  "status": "CANCELLED"
+}
+
 ### Delete enrollment
 DELETE http://localhost:8080/enrollments/1

@@ -1,6 +1,7 @@
 package com.esgi.coursemanager.service;
 
 import com.esgi.coursemanager.common.Result;
+import com.esgi.coursemanager.dto.EnrollmentDto;
 import com.esgi.coursemanager.model.Enrollment;
 import com.esgi.coursemanager.model.EnrollmentStatus;
 import com.esgi.coursemanager.repository.CourseRepository;
@@ -61,6 +62,21 @@ public class EnrollmentServiceImpl implements EnrollmentService {
         var createdEnrollment = enrollmentRepository.save(enrollment);
 
         return Result.success(createdEnrollment.getId());
+    }
+
+    public Result<EnrollmentDto> updateEnrollmentStatus(Long id, EnrollmentStatus status) {
+        var enrollmentOpt = enrollmentRepository.findById(id);
+        if (enrollmentOpt.isEmpty())
+            return Result.failure(HttpStatus.NOT_FOUND, "Enrollment not found.");
+
+        var enrollment = enrollmentOpt.get();
+        enrollment.setStatus(status);
+
+        enrollmentRepository.save(enrollment);
+
+        var enrollmentDto = new EnrollmentDto(enrollment);
+
+        return Result.success(enrollmentDto);
     }
 
     public Result<Void> deleteEnrollment(Long id) {

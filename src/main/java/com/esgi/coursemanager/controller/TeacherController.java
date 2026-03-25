@@ -52,7 +52,8 @@ public class TeacherController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateTeacher(@PathVariable Long id, @RequestBody TeacherUpdateBodyDto dto) {
+    public ResponseEntity<?> updateTeacher(@PathVariable Long id,
+                                           @RequestBody TeacherUpdateBodyDto dto) {
         var result = teacherService.updateTeacher(
                 id,
                 dto.getFirstName(),

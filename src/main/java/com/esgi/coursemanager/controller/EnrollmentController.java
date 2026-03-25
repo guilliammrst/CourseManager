@@ -2,6 +2,7 @@ package com.esgi.coursemanager.controller;
 
 import com.esgi.coursemanager.common.Result;
 import com.esgi.coursemanager.dto.EnrollmentBodyDto;
+import com.esgi.coursemanager.dto.EnrollmentUpdateBodyDto;
 import com.esgi.coursemanager.service.EnrollmentService;
 
 import jakarta.validation.Valid;
@@ -28,6 +29,16 @@ public class EnrollmentController {
         );
 
         return result.toResponseEntity(HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateEnrollmentStatus(@PathVariable Long id,
+                                                    @Valid @RequestBody EnrollmentUpdateBodyDto dto) {
+        var result = enrollmentService.updateEnrollmentStatus(
+                id,
+                dto.getStatus());
+
+        return result.toResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
