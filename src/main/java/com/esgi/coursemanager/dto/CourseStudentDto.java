@@ -29,10 +29,14 @@ public class CourseStudentDto {
     private LocalDate enrollmentDate;
 
     public CourseStudentDto(Enrollment enrollment) {
-        this.id = enrollment.getStudent().getId();
-        this.firstName = enrollment.getStudent().getFirstName();
-        this.lastName = enrollment.getStudent().getLastName();
-        this.email = enrollment.getStudent().getEmail();
         this.enrollmentDate = enrollment.getEnrollmentDate();
+
+        var student = enrollment.getStudent();
+        if (student != null) {
+            this.id = student.getId();
+            this.firstName = student.getFirstName();
+            this.lastName = student.getLastName();
+            this.email = student.getEmail();
+        }
     }
 }

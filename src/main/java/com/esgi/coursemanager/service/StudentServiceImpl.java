@@ -1,5 +1,6 @@
 package com.esgi.coursemanager.service;
 
+import com.esgi.coursemanager.common.EmailHelper;
 import com.esgi.coursemanager.common.Result;
 import com.esgi.coursemanager.dto.StudentDto;
 import com.esgi.coursemanager.dto.StudentEnrollmentDto;
@@ -71,6 +72,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public Result<Long> createStudent(String firstName, String lastName, String email) {
+        if (!EmailHelper.isValidEmail(email))
+            return Result.failure(HttpStatus.BAD_REQUEST, "Invalid email format.");
+
         if (studentRepository.existsByEmail(email))
             return Result.failure(HttpStatus.BAD_REQUEST, "Email already used.");
 
@@ -82,7 +86,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public Result<StudentDto> updateStudent(Long id, String firstName, String lastName, String email) {
-
         var studentOpt = studentRepository.findById(id);
         if (studentOpt.isEmpty())
             return Result.failure(HttpStatus.NOT_FOUND, "Student not found.");
@@ -96,7 +99,10 @@ public class StudentServiceImpl implements StudentService {
             student.setLastName(lastName);
 
         if (email != null && !email.isBlank())
-            student.setEmail(email);
+            if (EmailHelper.isValidEmail(email))
+                student.setEmail(email);
+            else
+                return Result.failure(HttpStatus.BAD_REQUEST, "Invalid email format.");
 
         studentRepository.save(student);
 

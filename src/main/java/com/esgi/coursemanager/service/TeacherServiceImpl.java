@@ -1,12 +1,10 @@
 package com.esgi.coursemanager.service;
 
 import com.esgi.coursemanager.common.Result;
-import com.esgi.coursemanager.dto.StudentDto;
 import com.esgi.coursemanager.dto.TeacherCourseDto;
 import com.esgi.coursemanager.dto.TeacherDto;
 import com.esgi.coursemanager.dto.TeacherQueryDto;
 import com.esgi.coursemanager.model.CourseType;
-import com.esgi.coursemanager.model.Student;
 import com.esgi.coursemanager.model.Teacher;
 import com.esgi.coursemanager.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
